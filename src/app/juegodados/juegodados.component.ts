@@ -9,6 +9,9 @@ export class JuegodadosComponent implements OnInit {
   valor2: number;
   valor3: number;
   resultado: string="";
+  intentos:number=0;
+  ganados:number=0;
+  perdidos:number=0;
   constructor() {
     this.valor1 = this.retornarAleatorio();
     this.valor2 = this.retornarAleatorio();
@@ -26,10 +29,18 @@ export class JuegodadosComponent implements OnInit {
     this.valor1 = this.retornarAleatorio();
     this.valor2 = this.retornarAleatorio();
     this.valor3 = this.retornarAleatorio();
-    if (this.valor1==this.valor2 && this.valor1==this.valor3)    
+    this.intentos++;
+    if (this.valor1==this.valor2 && this.valor1==this.valor3)  
+    {
       this.resultado='Ganó';
-    else
+      this.ganados++;
+    } 
+    else{
       this.resultado='Perdió';
+      this.perdidos++;
+    }
+      
+      
   }
   
   
